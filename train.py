@@ -1,5 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt 
+import os 
+from os import path
+
+if not path.exists('/content/drive/MyDrive/nlp/Saved_model'):
+    Save_model = '/content/drive/MyDrive/nlp/Saved_model'
+    os.mkdir(Save_model)
 
 from keras import backend as K
 
@@ -65,7 +71,7 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='upper left')
-save_fig_name = '/content/Saved_model/figure_loss'
+save_fig_name = '/content/drive/MyDrive/nlp/Saved_model/figure_loss.png'
 fig.savefig(save_fig_name)
 
 fig = plt.figure()
@@ -75,5 +81,5 @@ plt.title('model accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='upper left')
-save_fig_name = '/content/Saved_model/figure_acc'
+save_fig_name = '/content/drive/MyDrive/nlp/Saved_model/figure_acc.png'
 fig.savefig(save_fig_name)
