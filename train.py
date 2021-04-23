@@ -6,7 +6,7 @@ from keras import backend as K
 from process_data import load_data, build_dict, vectorize, load_glove_weights
 from net import Net
 
-N = 30
+N = 30000
 N_d = int(N * 0.1)
 train_d, train_q, train_a = load_data('/content/drive/MyDrive/nlp/training3.txt', N, True)
 dev_d, dev_q, dev_a = load_data('/content/drive/MyDrive/nlp/validation.txt', N_d, True)
@@ -43,7 +43,7 @@ model = Net(vocab_size, embd_size, rnn_half_hidden_size, glove_embd_w, doc_maxle
 print(model.summary())
 history = model.fit([v_train_d, v_train_q], v_train_y,
             batch_size=32,
-            epochs=2,
+            epochs=20,
             validation_data=([v_dev_d, v_dev_q], v_dev_y)
         )
 
