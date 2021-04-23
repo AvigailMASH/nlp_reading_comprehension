@@ -43,7 +43,7 @@ model = Net(vocab_size, embd_size, rnn_half_hidden_size, glove_embd_w, doc_maxle
 print(model.summary())
 history = model.fit([v_train_d, v_train_q], v_train_y,
             batch_size=32,
-            epochs=20,
+            epochs=15,
             validation_data=([v_dev_d, v_dev_q], v_dev_y)
         )
 
