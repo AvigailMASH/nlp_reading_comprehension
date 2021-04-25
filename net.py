@@ -44,5 +44,5 @@ def Net(vocab_size, embd_size, rnn_h_size, glove_embd_w, doc_maxlen, query_maxle
     answer = Activation('softmax')(Dense(num_labels, kernel_initializer=RandomUniform(-0.01, 0.01))(o))
     print('answer', answer.shape)
     model = Model(inputs=[in_doc, in_q], outputs=answer, name='attention_model')
-    model.compile(optimizer=SGD(lr=0.1, clipnorm=10.), loss='categorical_crossentropy', metrics=['accuracy']) 
+    model.compile(optimizer=SGD(lr=0.001, clipnorm=10.), loss='categorical_crossentropy', metrics=['accuracy']) 
     return model
